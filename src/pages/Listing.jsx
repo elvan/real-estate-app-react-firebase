@@ -1,6 +1,7 @@
 import { getAuth } from 'firebase/auth';
 import { doc, getDoc } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import SwiperCore, { A11y, Navigation, Pagination, Scrollbar } from 'swiper';
@@ -40,6 +41,9 @@ function Listing() {
 
   return (
     <main>
+      <Helmet>
+        <title>{listing.name}</title>
+      </Helmet>
       <Swiper slidesPerView={1} pagination={{ clickable: true }}>
         {listing.imgUrls.map((url, index) => (
           <SwiperSlide key={index}>
